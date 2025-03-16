@@ -1,5 +1,5 @@
 {
-  "name": "is-word",
+  "name": "@wizardtales/is-word",
   "version": "1.0.3",
   "description": "npm module to check if a word exists in a language",
   "main": "index.js",
