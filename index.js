@@ -39,18 +39,24 @@ Trie.prototype.check = function word(word) {
 
 
 
-module.exports = function words(language, lowercase = false) {
+module.exports = function words(language, lowercase = false, raw = false) {
     const possibleLanguages = ['american-english', 'brazilian', 'british-english', 'french', 'italian','ngermanci', 'ogermanci', 'ngerman', 'ogerman', 'portuguese', 'spanish', 'swiss'];
     
     language = language || 'american-english';
     if(possibleLanguages.indexOf(language) === -1) throw new Error(language + " is not vaid language");
     
-    
-    var trie = new Trie();
     var filePath = path.resolve(path.join(__dirname, `./dictionary/${language}`));
-    
     var text = fs.readFileSync(filePath, "utf-8");
     text = text.split('\n');
+    
+    if(raw) {
+        return text.map(word => {
+            lowercase ? word.toLowerCase() : word;
+        });
+    }
+
+    var trie = new Trie();
+    
     text.forEach(word => {
         trie.insert(lowercase ? word.toLowerCase() : word);
     });
