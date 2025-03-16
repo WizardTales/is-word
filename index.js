@@ -50,9 +50,9 @@ module.exports = function words(language, lowercase = false, raw = false) {
     text = text.split('\n');
     
     if(raw) {
-        return text.map(word => {
-            lowercase ? word.toLowerCase() : word;
-        });
+        return text.map(word => 
+            lowercase ? word.toLowerCase() : word
+        );
     }
 
     var trie = new Trie();
