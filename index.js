@@ -40,7 +40,7 @@ Trie.prototype.check = function word(word) {
 
 
 module.exports = function words(language) {
-    const possibleLanguages = ['american-english', 'brazilian', 'british-english', 'french', 'italian', 'ngerman', 'ogerman', 'portuguese', 'spanish', 'swiss'];
+    const possibleLanguages = ['american-english', 'brazilian', 'british-english', 'french', 'italian','ngermanci', 'ogermanci', 'ngerman', 'ogerman', 'portuguese', 'spanish', 'swiss'];
     
     language = language || 'american-english';
     if(possibleLanguages.indexOf(language) === -1) throw new Error(language + " is not vaid language");
